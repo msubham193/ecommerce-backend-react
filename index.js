@@ -48,6 +48,9 @@ process.on("uncaughtException", (err) => {
   process.exit(1);
 });
 
+
+
+
 //MongoDB-Connection:
 mongoose
   .connect(
@@ -58,8 +61,10 @@ mongoose
     console.log("Connected to DB !");
   });
 
-const server = app.listen(process.env.PORT, () => {
-  console.log("Server is running on port " + process.env.PORT);
+ const port  = process.env.PORT || 4000
+
+const server = app.listen(port, () => {
+  console.log("Server is running on port " + port);
 });
 
 // Unhandled Promise Rejection
